@@ -2,6 +2,10 @@
 
 A FiveM resource that adds a DSLR-style camera for police/roleplay use. Take in-game screenshots, tag evidence in frame, and save photos to an SD card with metadata (location, time, street name).
 
+## Preview
+
+[Click Me](https://youtu.be/nuiuKAgrHC4)
+
 ## Requirements
 
 - **ox_lib**
