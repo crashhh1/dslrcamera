@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DSLR Camera UI</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    if (typeof GetParentResourceName === 'undefined') document.documentElement.classList.add('standalone');
+  </script>
+</head>
+<body>
+  <div id="camera-back">
+    <div id="camera-frame">
+      <div id="camera-lcd">
+        <div id="lcd-default">
+          <div id="lv-badge">LV</div>
+          <div id="lcd-info-bar">
+            <span id="zoom-label">1.0x</span>
+            <span id="sd-label">CAM</span>
+          </div>
+          <div id="lcd-hint">Click LCD to look through viewfinder</div>
+        </div>
+
+        <div id="gallery-panel" class="hidden">
+          <div id="gallery-header">
+            <span id="gallery-title">GALLERY</span>
+            <button id="gallery-close" class="gallery-btn-sm">✕</button>
+          </div>
+          <div id="gallery-list"></div>
+          <div id="gallery-detail" class="hidden">
+            <div id="gallery-detail-scroll" tabindex="0">
+              <div id="gallery-img-preview"></div>
+              <div id="gallery-detail-scroll-inner">
+                <div id="gallery-meta">
+                  <div id="gallery-date"></div>
+                  <div id="gallery-time"></div>
+                  <div id="gallery-loc"></div>
+                  <div id="gallery-zoom-info"></div>
+                  <div id="gallery-coords"></div>
+                  <div id="gallery-url-row">
+                    <input id="gallery-url" readonly />
+                    <button id="gallery-copy">COPY URL</button>
+                  </div>
+                </div>
+                <button id="gallery-back" class="gallery-back-btn">◀ BACK</button>
+              </div>
+            </div>
+          </div>
+          <div id="gallery-empty" class="hidden">No photos.</div>
+        </div>
+
+        <div id="gallery-lightbox" class="hidden">
+          <div id="gallery-lightbox-backdrop"></div>
+          <img id="gallery-lightbox-img" alt="Enlarged" />
+          <button id="gallery-lightbox-close" title="Close">✕</button>
+        </div>
+
+        <div id="folder-menu-panel" class="hidden">
+          <div class="folder-menu-header">
+            <span class="folder-menu-title">Folders</span>
+            <button id="folder-menu-close" class="gallery-btn-sm" title="Close">✕</button>
+          </div>
+          <div id="folder-menu-list"></div>
+          <div id="folder-menu-new-row" class="hidden">
+            <input id="folder-menu-new-input" type="text" placeholder="Folder name" maxlength="24" />
+            <button id="folder-menu-create-btn">Create</button>
+          </div>
+        </div>
+      </div>
+
+      <button id="btn-play"  class="cam-btn" data-action="cameraPlay"  title="Gallery" data-edit-id="play">▶</button>
+      <button id="btn-menu"  class="cam-btn" data-action="cameraMenu"  title="Menu"    data-edit-id="menu">MENU</button>
+      <button id="btn-info"  class="cam-btn cam-btn-sm" title="Info / Folders" data-action="cameraInfo" data-edit-id="info">i</button>
+      <button id="btn-zoom-in"  class="cam-btn cam-btn-sm" data-action="zoom-in"  title="Zoom In"  data-edit-id="zin">⊕</button>
+      <button id="btn-zoom-out" class="cam-btn cam-btn-sm" data-action="zoom-out" title="Zoom Out" data-edit-id="zout">⊖</button>
+
+      <div id="dpad-ring">
+        <button id="btn-ok"    class="cam-btn dpad-ok"  data-action="cameraGalleryOk" title="OK" data-edit-id="ok">OK</button>
+        <button class="cam-btn dpad-dir dpad-up"    data-action="dpad-up">▲</button>
+        <button class="cam-btn dpad-dir dpad-down"  data-action="dpad-down">▼</button>
+        <button class="cam-btn dpad-dir dpad-left"  data-action="dpad-left">◀</button>
+        <button class="cam-btn dpad-dir dpad-right" data-action="dpad-right">▶</button>
+      </div>
+      <button id="btn-trash" class="cam-btn" data-action="cameraTrash" title="Delete" data-edit-id="trash">🗑</button>
+
+      <div id="edit-mode-banner" class="hidden">EDIT MODE — Drag buttons · F12 = save to F8</div>
+    </div>
+  </div>
+
+  <div id="viewfinder" class="hidden">
+    <div id="vf-vignette"></div>
+    <div class="vf-bracket vf-tl"></div>
+    <div class="vf-bracket vf-tr"></div>
+    <div class="vf-bracket vf-bl"></div>
+    <div class="vf-bracket vf-br"></div>
+    <div id="vf-cross-h"></div>
+    <div id="vf-cross-v"></div>
+    <div id="vf-hud">
+      <span id="vf-zoom">1.0x</span>
+      <span id="vf-sd"></span>
+      <span id="vf-rec">● REC</span>
+    </div>
+    <div id="vf-keys">
+      <kbd>LMB</kbd> Shoot &nbsp; <kbd>Scroll</kbd> Zoom &nbsp; <kbd>Backspace</kbd> Back
+    </div>
+    <div id="vf-flash" class="hidden"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
