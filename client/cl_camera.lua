@@ -4,6 +4,7 @@ local currentCameraSlot = nil
 local scriptedCam   = nil
 local camFov = 35.0
 local fovMin = 10.0
+local fovMax = 50.0
 local scanRadius = 15.0
 local shutterSound = 'Camera_Shoot'
 local resName = GetCurrentResourceName()
